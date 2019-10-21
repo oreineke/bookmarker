@@ -4,7 +4,11 @@ let mainWindow = null; // #A
 
 app.on('ready', () => {
   console.log('Hello from Electron.');
-  mainWindow = new BrowserWindow();
+  mainWindow = new BrowserWindow({
+    webPreferences: {
+      nodeIntegration: true
+    }
+  });
   mainWindow.webContents.loadURL(`file://${__dirname}/index.html`); // #A
 });
 
